@@ -38,7 +38,7 @@ engine.execute('SELECT text FROM toastbrot;')
 ```
 
 oder durch
-````python
+```python
 import psycopg2
 
 connection = psycopg2.connect(user = "postgres",  password = "postgres",                     host = "127.0.0.1",
