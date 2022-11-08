@@ -23,3 +23,31 @@ Mit dem run-Befehl kann der Service in das richtige Netzwerk übertragen werden.
 docker run -dit  --name postgres --network apps -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:latest 
 ```
 
+## Usage
+in Jupyterlab kann die Einbindung mit:
+
+```python
+from sqlalchemy import create_engine
+ 
+engine = create_engine('postgresql://postgres:postgres@localhost:5432/fake')
+
+engine.execute("INSERT INTO toastbrot VALUES('2020-12-12','asdfada',True) ;")
+
+engine.execute('SELECT text FROM toastbrot;')
+
+```
+
+oder durch
+````python
+import psycopg2
+
+connection = psycopg2.connect(user = "postgres",  password = "postgres",                     host = "127.0.0.1",
+                              port = "5432",
+                              database = "fake") 
+
+cursor = connection.cursor()                                
+
+
+cursor.execute("Select * from news ;") 
+```
+geschehen.
