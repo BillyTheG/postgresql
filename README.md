@@ -49,5 +49,7 @@ cursor = connection.cursor()
 
 
 cursor.execute("Select * from news ;") 
+
 ```
+
 geschehen.
